@@ -9,37 +9,27 @@
 import argparse
 
 from holistic_bias.src.sentences import HolisticBiasSentenceGenerator
-from holistic_bias.src.util import DEFAULT_DATASET_VERSION
+DEFAULT_DATASET_VERSION = "v1.1"
+# Default to the original v1.0 version for compatibility.
+
+RANDOM_SEED = 17
+
+# Template building constants
+NONE_STRING = "(none)"  # Use when an attribute is not present
+NO_PREFERENCE_DATA_STRING = "no_data"
+# Use when it is not known whether a descriptor is preferred
 
 
 if __name__ == "__main__":
 
-    parser = argparse.ArgumentParser("Generate HolisticBias sentences")
-    parser.add_argument(
-        "save_folder",
-        type=str,
-        help="Folder to save CSVs of all noun phrases and base sentences to",
-    )
-    parser.add_argument(
-        "--dataset-version",
-        type=str,
-        default=DEFAULT_DATASET_VERSION,
-        help="Which version of the dataset to load",
-    )
-    parser.add_argument(
-        "--use-small-set",
-        action="store_true",
-        help="Include only a small subset of the total number of descriptors, for tractability",
-    )
-    args = parser.parse_args()
+
 
     print(
-        f"Instantiating the HolisticBias sentence generator and saving output files to {args.save_folder}."
+        f"Instantiating the HolisticBias sentence generator and saving output files to 'xxx'."
     )
     generator = HolisticBiasSentenceGenerator(
-        save_folder=args.save_folder,
-        dataset_version=args.dataset_version,
-        use_small_set=args.use_small_set,
+        save_folder='D:\Repos\Github Projects\ResponsibleNLP\holistic_bias\dataset',
+        dataset_version=DEFAULT_DATASET_VERSION
     )
     print(f"\nSample sentences:")
     for _ in range(5):

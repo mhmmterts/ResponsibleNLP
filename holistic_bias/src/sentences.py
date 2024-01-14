@@ -20,9 +20,15 @@ import numpy as np
 import pandas as pd
 from tqdm import tqdm
 
-from holistic_bias.src.util import NO_PREFERENCE_DATA_STRING, NONE_STRING, RANDOM_SEED
 
+NO_PREFERENCE_DATA_STRING = "no_data"
+DEFAULT_DATASET_VERSION = "v1.0"
+# Default to the original v1.0 version for compatibility.
 
+RANDOM_SEED = 17
+
+# Template building constants
+NONE_STRING = "(none)"  # Use when an attribute is not present
 class HolisticBiasSentenceGenerator:
     """
     Generate sentences from the HolisticBias dataset, with stylistic variations applied.
